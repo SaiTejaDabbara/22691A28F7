@@ -1,15 +1,17 @@
-import React from 'react';
-import Question1 from '../Question1';
-import Question2 from '../Question2';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ShortenerForm from "./components/ShortenerForm";
+import StatsPage from "./components/StatsPage";
+import RedirectHandler from "./components/RedirectHandler";
 
-function App() {
-  return (
-    <div>
-      <h1>Afford Medicals Frontend Test</h1>
-      <Question1 />
-      <Question2 />
-    </div>
-  );
-}
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<ShortenerForm />} />
+      <Route path="/stats" element={<StatsPage />} />
+      <Route path="/:shortcode" element={<RedirectHandler />} />
+    </Routes>
+  </Router>
+);
 
 export default App;
